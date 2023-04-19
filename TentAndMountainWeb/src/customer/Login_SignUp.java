@@ -60,7 +60,7 @@ class User { //使用者的屬性
     private String email;
     private String name;
     private final String pattern_Email = "[a-zA-Z0-9]{7,15}@[a-zA-Z]+(\\.[a-z]+)+"; //email格式的正規表達式
-    private final String pattern_Name = "[a-zA-Z]+"; //email格式的正規表達式
+    private final String pattern_Name = "[a-zA-Z]+"; //姓名格式的正規表達式
 
     public void setAccount(String account) { //輸入帳號
         this.account = account;
