@@ -104,14 +104,12 @@ class User { //使用者的屬性
 
     public String getPattern_Email(){
         //email格式的正規表達式
-        String pattern_Email = "[a-zA-Z0-9]{7,15}@[a-zA-Z]+(\\.[a-z]+)+";
-        return pattern_Email;
+        return "[a-zA-Z0-9]{7,15}@[a-zA-Z]+(\\.[a-z]+)+";
     }
 
     public String getPattern_Name(){
         //姓名格式的正規表達式
-        String pattern_Name = "[a-zA-Z]+";
-        return pattern_Name;
+        return "[a-zA-Z]+";
     }
 
 }
