@@ -37,7 +37,7 @@ public class Login_SignUp {
      */
     public static boolean SignUp(User user) {
         if (!(user.getGender().equals("男") || user.getGender().equals("女"))) {
-            System.out.println("性別不正確");
+            System.out.println("Wrong gender.");
             return false;
         } else if (!(user.getEmail().matches(user.getPattern_Email()))) {
             System.out.println("Wrong email format.");
@@ -46,13 +46,13 @@ public class Login_SignUp {
             System.out.println("Wrong name format.");
             return false;
         } else if (!(user.getAccount().matches(user.getPattern_Account()))) {
-            System.out.println("Wrong account format");
+            System.out.println("Wrong account format.");
             return false;
         } else if (!(user.getPassword().matches(user.getPattern_PassWord()))) {
-            System.out.println("Wrong password format");
+            System.out.println("Wrong password format.");
             return false;
         } else {
-            System.out.println("註冊完畢，歡迎成為會員~");
+            System.out.println("Sign up is Finished. Welcome to be the part of us!");
             return true;
         }
     }
