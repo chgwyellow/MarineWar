@@ -37,7 +37,7 @@ public class Login_SignUp {
      */
     public static boolean SignUp(User user) {
         if (!(user.getGender().equals("男") || user.getGender().equals("女"))) {
-            System.out.println("性別未填寫");
+            System.out.println("性別不正確");
             return false;
         } else if (!(user.getEmail().matches(user.getPattern_Email()))) {
             System.out.println("Wrong email format.");
