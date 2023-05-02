@@ -45,8 +45,14 @@ public class Login_SignUp {
         } else if (!(user.getName().matches(user.getPattern_Name()))) {
             System.out.println("Wrong name format.");
             return false;
+        } else if (!(user.getAccount().matches(user.getPattern_Account()))) {
+            System.out.println("Wrong account format");
+            return false;
+        } else if (!(user.getPassword().matches(user.getPattern_PassWord()))) {
+            System.out.println("Wrong password format");
+            return false;
         } else {
-            System.out.println("註冊完畢，請開始使用");
+            System.out.println("註冊完畢，歡迎成為會員~");
             return true;
         }
     }
@@ -102,14 +108,24 @@ class User { //使用者的屬性
         return name;
     }
 
-    public String getPattern_Email(){
+    public String getPattern_Email() {
         //email格式的正規表達式
         return "[a-zA-Z0-9]{7,15}@[a-zA-Z]+(\\.[a-z]+)+";
     }
 
-    public String getPattern_Name(){
+    public String getPattern_Name() {
         //姓名格式的正規表達式
         return "[a-zA-Z]+";
+    }
+
+    public String getPattern_Account() {
+        //帳號格式的正規表達式
+        return "[a-zA-Z0-9]{6,15}";
+    }
+
+    public String getPattern_PassWord() {
+        //密碼格式的正規表達式
+        return "[a-zA-Z0-9]{6,12}";
     }
 
 }
