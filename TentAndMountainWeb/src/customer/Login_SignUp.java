@@ -3,7 +3,7 @@ package customer;
 
 /**
  * @author chgwyellow
- * @creat 2023-05-05 00:14
+ * @create 2023-05-05 00:14
  * 註冊與登入系統
  */
 public class Login_SignUp {
