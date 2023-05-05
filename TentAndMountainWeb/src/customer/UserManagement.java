@@ -19,13 +19,9 @@ public class UserManagement {
      * 建立儲存用戶資料的陣列
      */
     private ArrayList<User> userList = new ArrayList<>();
-    /**
-     * 預設註冊未成功
-     */
-    boolean succeed = false;
 
     /**
-     * TODO 註冊方法
+     * 註冊方法
      */
     public void register() throws IOException {
 
@@ -66,6 +62,7 @@ public class UserManagement {
             System.out.println("Wrong email format.");
             return;
         }
+
         User user1 = new User(account, pwd, name, gender, email);
         userList.add(user1);
         //將用戶資料寫入文件檔中
@@ -75,12 +72,11 @@ public class UserManagement {
             bw.close();
             System.out.println(" Register is Finished. Welcome to be the part of us!");
         }
-        succeed = true;
 
     }
 
     /**
-     * TODO 登入方法
+     * 登入方法
      */
     public void login() {
 
@@ -97,8 +93,8 @@ public class UserManagement {
                 System.out.println("登入成功!");
                 break;
             }
+            System.out.println("帳號或密碼錯誤");
         }
-        System.out.println("帳號或密碼錯誤");
 
     }
 
