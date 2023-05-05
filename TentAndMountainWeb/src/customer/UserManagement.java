@@ -1,10 +1,12 @@
 package customer;
 
 
+import javax.jws.soap.SOAPBinding;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -18,7 +20,7 @@ public class UserManagement {
     /**
      * 建立儲存用戶資料的陣列
      */
-    private ArrayList<User> userList = new ArrayList<>();
+    ArrayList<User> userList = new ArrayList<>();
 
     /**
      * 預設未註冊成功為false
@@ -69,11 +71,10 @@ public class UserManagement {
             return;
         }
 
-        User user1 = new User(account, pwd, name, gender, email);
-        userList.add(user1);
+        User user = new User(account, pwd, name, gender, email);
         //將用戶資料寫入文件檔中
         PrintWriter bw = new PrintWriter(new FileWriter("./img&info/userInfo.txt"));
-        for (User user : userList) {
+        for (User user1 : userList) {
             bw.println("Account: " + user.getAccount() + ", Password: " + user.getPassword() + ", Name: " + user.getName() + ", Gender: " + user.getGender() + ", Email: " + user.getEmail());
             bw.close();
             System.out.println(" Register is Finished. Welcome to be the part of us!");
