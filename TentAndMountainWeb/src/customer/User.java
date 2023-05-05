@@ -59,22 +59,22 @@ public class User {
         return name;
     }
 
-    public String Pattern_Email() {
+    public static String Pattern_Email() {
         //email格式的正規表達式
         return "[a-zA-Z0-9]{7,15}@[a-zA-Z]+(\\.[a-z]+)+";
     }
 
-    public String Pattern_Name() {
+    public static String Pattern_Name() {
         //姓名格式的正規表達式
         return "[a-zA-Z]+";
     }
 
-    public String Pattern_Account() {
+    public static String Pattern_Account() {
         //帳號格式的正規表達式
         return "[a-zA-Z0-9]{6,15}";
     }
 
-    public String Pattern_PassWord() {
+    public static String Pattern_PassWord() {
         //密碼格式的正規表達式
         return "[a-zA-Z0-9]{6,12}";
     }
