@@ -2,9 +2,7 @@ package customer;
 
 
 import javax.jws.soap.SOAPBinding;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -71,15 +69,16 @@ public class UserManagement {
             return;
         }
 
-        User user = new User(account, pwd, name, gender, email);
+        User user1 = new User(account, pwd, name, gender, email);
+        userList.add(user1);
         //將用戶資料寫入文件檔中
-        PrintWriter bw = new PrintWriter(new FileWriter("./img&info/userInfo.txt"));
-        for (User user1 : userList) {
+        PrintWriter bw = new PrintWriter(new FileWriter("./img&info/userInfo.txt", true));
+        for (User user : userList) {
             bw.println("Account: " + user.getAccount() + ", Password: " + user.getPassword() +
                     ", Name: " + user.getName() + ", Gender: " + user.getGender() + ", Email: " + user.getEmail());
-            bw.close();
             System.out.println(" Register is Finished. Welcome to be the part of us!");
         }
+        bw.close();
         isRegistered = true;
 
     }
@@ -111,20 +110,25 @@ public class UserManagement {
     /**
      * 查詢用戶資料
      */
-    public void queryUserInfo(String account) {
+    public void queryUserInfo(String account) throws IOException {
 
         System.out.println("--您的會員資料--");
-        for (User user : userList) {
-            if (user.getAccount().equals(account)) {
-                System.out.println("Account: " + user.getAccount());
-                System.out.println("Name: " + user.getName());
-                System.out.println("Gender: " + user.getGender());
-                System.out.println("Email: " + user.getEmail());
-                break;
+        BufferedReader br = new BufferedReader(new FileReader("./img&info/userInfo.txt"));
+        String line = null;
+        while ((line = br.readLine()) != null) {
+            String[] userInfo = line.split(",");
+            if (userInfo[0].trim().equals("Account: " + account)) {
+                System.out.println("Account: " + userInfo[0].trim().substring(9)); //Account: 到索引8結束 從9開始輸出
+                System.out.println("Password: " + userInfo[1].trim().substring(10));
+                System.out.println("Name: " + userInfo[2].trim().substring(6));
+                System.out.println("Gender: " + userInfo[3].trim().substring(8));
+                System.out.println("Email: " + userInfo[4].trim().substring(7));
+                br.close();
+                return;
             }
-            System.out.println("User is not found!");
         }
-
+        System.out.println("User is not found!");
+        br.close();
     }
 
 }
