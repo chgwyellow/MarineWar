@@ -12,13 +12,14 @@ public class User {
     private String email;
     private String name;
 
-    public User(String account, String password, String gender, String email, String name) {
+    public User(String account, String password, String name, String gender, String email) {
         this.account = account;
         this.password = password;
         this.gender = gender;
         this.email = email;
         this.name = name;
     }
+
     public void setAccount(String account) { //輸入帳號
         this.account = account;
     }

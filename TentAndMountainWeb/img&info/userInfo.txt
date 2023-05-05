@@ -1,1 +1,1 @@
-Account: dinnis1107,Password: lovewei,Name: dinnis1107@gmail.com,Gender: chgw,Email: male
+Account: dinnis,Password: lovewei,Name: chgw,Gender: male,Email: dinnis1107@gmail.com
