@@ -16,8 +16,6 @@ public class Main_Function {
         UserManagement user = new UserManagement();
         Scanner sc = new Scanner(System.in);
 
-
-        label:
         while (true) {
             System.out.println("請選擇需要的操作: \n1. 註冊\n2. 登入\n3. 查詢資料\n輸入q離開");
             String result = sc.nextLine();
@@ -36,7 +34,7 @@ public class Main_Function {
                     break;
                 case "q":
                     System.out.println("程式結束執行");
-                    break label;
+                    return;
             }
         }
     }
