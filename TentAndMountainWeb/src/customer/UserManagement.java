@@ -75,7 +75,8 @@ public class UserManagement {
         //將用戶資料寫入文件檔中
         PrintWriter bw = new PrintWriter(new FileWriter("./img&info/userInfo.txt"));
         for (User user1 : userList) {
-            bw.println("Account: " + user.getAccount() + ", Password: " + user.getPassword() + ", Name: " + user.getName() + ", Gender: " + user.getGender() + ", Email: " + user.getEmail());
+            bw.println("Account: " + user.getAccount() + ", Password: " + user.getPassword() +
+                    ", Name: " + user.getName() + ", Gender: " + user.getGender() + ", Email: " + user.getEmail());
             bw.close();
             System.out.println(" Register is Finished. Welcome to be the part of us!");
         }
