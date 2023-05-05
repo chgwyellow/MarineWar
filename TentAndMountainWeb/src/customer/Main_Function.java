@@ -13,9 +13,13 @@ import java.util.Scanner;
 public class Main_Function {
     public static void main(String[] args) throws IOException {
 
+        Main_Function mf = new Main_Function();
+        mf.getMenu();
+
+    }
+    public void getMenu() throws IOException {
         UserManagement user = new UserManagement();
         Scanner sc = new Scanner(System.in);
-
         while (true) {
             System.out.println("請選擇需要的操作: \n1. 註冊\n2. 登入\n3. 查詢資料\n輸入q離開");
             String result = sc.nextLine();
