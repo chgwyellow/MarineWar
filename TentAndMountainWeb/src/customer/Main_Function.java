@@ -21,7 +21,8 @@ public class Main_Function {
             System.out.println("請選擇需要的操作: 註冊 登入 查詢資料 或輸入q離開");
             String result = sc.nextLine();
             if (result.equals("註冊")) {
-                user.register();
+                while(!user.isRegistered)
+                    user.register();
             } else if (result.equals("登入")) {
                 user.login();
             } else if (result.equals("查詢資料")) {

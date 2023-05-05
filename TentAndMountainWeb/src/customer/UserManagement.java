@@ -21,6 +21,11 @@ public class UserManagement {
     private ArrayList<User> userList = new ArrayList<>();
 
     /**
+     * 預設未註冊成功為false
+     */
+    public boolean isRegistered = false;
+
+    /**
      * 註冊方法
      */
     public void register() throws IOException {
@@ -72,6 +77,7 @@ public class UserManagement {
             bw.close();
             System.out.println(" Register is Finished. Welcome to be the part of us!");
         }
+        isRegistered = true;
 
     }
 
@@ -111,8 +117,8 @@ public class UserManagement {
                 System.out.println("Email: " + user.getEmail());
                 break;
             }
+            System.out.println("User is not found!");
         }
-        System.out.println("User is not found!");
 
     }
 
