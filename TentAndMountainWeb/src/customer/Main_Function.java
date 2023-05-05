@@ -17,21 +17,26 @@ public class Main_Function {
         Scanner sc = new Scanner(System.in);
 
 
+        label:
         while (true) {
-            System.out.println("請選擇需要的操作: 註冊 登入 查詢資料 或輸入q離開");
+            System.out.println("請選擇需要的操作: \n1. 註冊\n2. 登入\n3. 查詢資料\n輸入q離開");
             String result = sc.nextLine();
-            if (result.equals("註冊")) {
-                while(!user.isRegistered)
-                    user.register();
-            } else if (result.equals("登入")) {
-                user.login();
-            } else if (result.equals("查詢資料")) {
-                System.out.println("請輸入帳號: ");
-                String account = sc.nextLine();
-                user.queryUserInfo(account);
-            } else if (result.equals("q")) {
-                System.out.println("程式結束執行");
-                break;
+            switch (result) {
+                case "1":
+                    while (!user.isRegistered)
+                        user.register();
+                    break;
+                case "2":
+                    user.login();
+                    break;
+                case "3":
+                    System.out.println("請輸入帳號: ");
+                    String account = sc.nextLine();
+                    user.queryUserInfo(account);
+                    break;
+                case "q":
+                    System.out.println("程式結束執行");
+                    break label;
             }
         }
     }

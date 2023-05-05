@@ -31,6 +31,7 @@ public class UserManagement {
     public void register() throws IOException {
 
         Scanner sc = new Scanner(System.in);
+        System.out.println("歡迎來到註冊頁面");
         System.out.println("請依序輸入資料\n");
 
         System.out.println("請輸入帳號: ");
@@ -87,6 +88,7 @@ public class UserManagement {
     public void login() {
 
         Scanner sc = new Scanner(System.in);
+        System.out.println("歡迎來到登入頁面");
 
         System.out.println("請輸入你的帳號: ");
         String account = sc.nextLine();
@@ -109,6 +111,7 @@ public class UserManagement {
      */
     public void queryUserInfo(String account) {
 
+        System.out.println("--您的會員資料--");
         for (User user : userList) {
             if (user.getAccount().equals(account)) {
                 System.out.println("Account: " + user.getAccount());
