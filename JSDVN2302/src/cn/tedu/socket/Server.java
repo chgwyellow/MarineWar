@@ -55,18 +55,10 @@ public class Server {
              */
                 Socket socket = server.accept();
                 System.out.println("用戶端已連接");
-                /*
-                Socket的getInputStream()方法
-                接收用戶端輸出的數據
-                 */
-                InputStream is = socket.getInputStream();
-                //低級串流轉成高級串流
-                BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-                //br讀取到的數據儲存到line裡面
-                String line;
-                while ((line = br.readLine()) != null) {
-                    System.out.println(line);
-                }
+                //有用戶訪問時 創建一個執行緒負責和用戶交互
+                ClientHandler handler = new ClientHandler(socket);
+                Thread t = new Thread(handler);
+                t.start();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -78,6 +70,41 @@ public class Server {
 
         Server server = new Server();
         server.start();
+
+    }
+
+    /**
+     * 定義執行緒的任務類 負責和用戶交互
+     */
+    private class ClientHandler implements Runnable {
+
+        private Socket socket; //設定成員變數 該類別都可以使用
+
+        public ClientHandler(Socket socket) { //將start方法裡的socket當成參數傳入
+            this.socket = socket;
+        }
+
+        @Override
+        public void run() {
+
+            /*
+            Socket的getInputStream()方法
+            接收用戶端輸出的數據
+            */
+            try {
+                InputStream is = socket.getInputStream();
+                //低級串流轉成高級串流
+                BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+                //br讀取到的數據儲存到line裡面
+                String line;
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
 
     }
 }
