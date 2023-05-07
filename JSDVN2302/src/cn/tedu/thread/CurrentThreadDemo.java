@@ -9,7 +9,7 @@ package cn.tedu.thread;
  * java中的所有代碼都靠執行緒運行 main方法也是
  * JVM啟動後會自動建立執行緒
  * 執行main方法的稱為主執行緒
- * 同時名字也較main
+ * 同時名字也叫main
  */
 public class CurrentThreadDemo {
 
