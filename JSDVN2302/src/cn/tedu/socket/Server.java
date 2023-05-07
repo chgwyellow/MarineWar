@@ -28,7 +28,6 @@ public class Server {
 
     public Server() {
 
-
         try {
             System.out.println("正在啟動伺服器...");
             /*
