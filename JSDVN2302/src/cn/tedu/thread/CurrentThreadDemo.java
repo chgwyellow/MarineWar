@@ -24,6 +24,7 @@ public class CurrentThreadDemo {
         System.out.println("t2執行緒名稱: " + t2.getName());
 
         Thread t3 = new Thread(() -> { //實作Runnable
+            //Lambda表達式省略方法名 run()被省略
             Thread tt = Thread.currentThread(); //Thread.currentThread() 的Thread不可省略
             System.out.println("t3執行緒名稱: " + tt.getName());
         });
