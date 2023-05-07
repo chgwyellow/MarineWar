@@ -1,8 +1,9 @@
 package cn.tedu.socket;
 
 
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author chgwyellow
@@ -41,9 +42,22 @@ public class Client {
 
     }
 
-    //客戶端開始工作的方法 執行工作邏輯
+    //用戶端開始工作的方法 執行工作邏輯
     public void start() {
 
+        try {
+            /*
+            呼叫Socket的getOutputStream()方法
+            獲取位元輸出流
+            輸出的位元會透過網路發送到遠端伺服器
+             */
+            OutputStream out = socket.getOutputStream();
+            //將低級串流轉換成高級串流
+            PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8)), true);
+            pw.println("用戶端你好!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
