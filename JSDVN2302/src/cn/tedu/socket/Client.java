@@ -20,6 +20,7 @@ public class Client {
     並應用IO串流來完成與其他伺服器完成數據交換
      */
     private Socket socket;
+    private static String name;
 
     //初始化客戶端內容 類似事前準備
     public Client() {
@@ -61,11 +62,11 @@ public class Client {
                 if ("exit".equals(line)) { //TCP協議下 和伺服器中斷連線必須通知 否則會報錯
                     break;
                 }
-                pw.println(line);
+                pw.println(name + " : " + line);
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             /*
             Socket提供的close方法
             1. 中斷連線並告知
@@ -79,6 +80,8 @@ public class Client {
     //主程式開始 只用來調用方法 不會寫太多程式碼
     public static void main(String[] args) throws IOException {
 
+        System.out.println("請輸入用戶名稱");
+        name = new Scanner(System.in).nextLine();
         Client client = new Client();
         client.start();
 
