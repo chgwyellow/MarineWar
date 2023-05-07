@@ -4,6 +4,7 @@ package cn.tedu.socket;
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 /**
  * @author chgwyellow
@@ -43,7 +44,7 @@ public class Client {
     }
 
     //用戶端開始工作的方法 執行工作邏輯
-    public void start() {
+    public void start() throws IOException {
 
         try {
             /*
@@ -54,15 +55,29 @@ public class Client {
             OutputStream out = socket.getOutputStream();
             //將低級串流轉換成高級串流
             PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8)), true);
-            pw.println("用戶端你好!");
+            Scanner sc = new Scanner(System.in);
+            while (true) {
+                String line = sc.nextLine();
+                if ("exit".equals(line)) { //TCP協議下 和伺服器中斷連線必須通知 否則會報錯
+                    break;
+                }
+                pw.println(line);
+            }
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            /*
+            Socket提供的close方法
+            1. 中斷連線並告知
+            2. 將socket所連接的串流關閉
+             */
+            socket.close();
         }
 
     }
 
     //主程式開始 只用來調用方法 不會寫太多程式碼
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Client client = new Client();
         client.start();

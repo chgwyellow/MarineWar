@@ -63,8 +63,10 @@ public class Server {
                 //低級串流轉成高級串流
                 BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
                 //br讀取到的數據儲存到line裡面
-                String line = br.readLine();
-                System.out.println(line);
+                String line;
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
