@@ -34,7 +34,7 @@ public class ThreadDemo03 {
         //透過Lambda表達式簡化
         Runnable r2 = () -> {
             for (int i = 0; i < 1000; i++) {
-                System.out.println("項洗哩?");
+                System.out.println("龍賣岔?");
             }
         };
         Thread t3 = new Thread(r2);
