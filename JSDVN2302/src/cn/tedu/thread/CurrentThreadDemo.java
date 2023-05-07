@@ -26,6 +26,10 @@ public class CurrentThreadDemo {
         Thread t3 = new Thread(() -> { //實作Runnable
             //Lambda表達式省略方法名 run()被省略
             Thread tt = Thread.currentThread(); //Thread.currentThread() 的Thread不可省略
+            /*
+            Thread.currentThread()表示的是取得當前執行緒 也就是t3
+            tt只是為了可以裝t3而設立
+             */
             System.out.println("t3執行緒名稱: " + tt.getName());
         });
         t3.setName("跑不動了鴨");
