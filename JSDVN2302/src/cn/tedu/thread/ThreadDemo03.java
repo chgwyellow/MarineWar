@@ -41,6 +41,7 @@ public class ThreadDemo03 {
 
         t1.start();
         t2.start();
+        t3.start();
     }
 
 }
