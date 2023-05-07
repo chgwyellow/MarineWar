@@ -3,7 +3,7 @@ package cn.tedu.thread;
 
 /**
  * @author chgwyellow
- * @date 2023/5/7
+ * @date 2023/5/7 15:47
  * @description 多執行緒
  * 實作Runnable介面
  */
