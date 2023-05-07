@@ -1,9 +1,13 @@
 package cn.tedu.socket;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author chgwyellow
@@ -51,6 +55,16 @@ public class Server {
              */
                 Socket socket = server.accept();
                 System.out.println("用戶端已連接");
+                /*
+                Socket的getInputStream()方法
+                接收用戶端輸出的數據
+                 */
+                InputStream is = socket.getInputStream();
+                //低級串流轉成高級串流
+                BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+                //br讀取到的數據儲存到line裡面
+                String line = br.readLine();
+                System.out.println(line);
             } catch (IOException e) {
                 e.printStackTrace();
             }
