@@ -38,9 +38,9 @@ public class PriorityDemo {
             }
         };
 
-        min.setPriority(1); //優先級別最低
-        norm.setPriority(5); //優先級別設定為5
-        max.setPriority(10); //修先級別最高
+        min.setPriority(Thread.MIN_PRIORITY); //優先級別最低
+        norm.setPriority(Thread.NORM_PRIORITY); //優先級別設定為5
+        max.setPriority(Thread.MAX_PRIORITY); //修先級別最高
 
         min.start();
         norm.start();
