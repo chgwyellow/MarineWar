@@ -46,5 +46,6 @@ public class PriorityDemo {
         norm.start();
         max.start();
 
+
     }
 }
