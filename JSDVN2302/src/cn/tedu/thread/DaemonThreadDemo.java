@@ -23,6 +23,8 @@ public class DaemonThreadDemo {
                 }
                 System.out.println("Rose: Ah, ah, ah ,ah ah...");
                 System.out.println("噗通! 咕嚕嚕嚕嚕....");
+                System.out.println("Rose is dead.");
+                System.out.println("Jack swims back.");
             }
         };
 
