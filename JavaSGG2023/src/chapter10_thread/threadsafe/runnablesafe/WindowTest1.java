@@ -15,12 +15,16 @@ class SaleTicket1 implements Runnable {
 
     int ticket = 100; // 所有thread共享此數據
 
+    boolean flag = true;
+
     @Override
     public void run() {
-        show();
+        while (flag) {
+            show();
+        }
     }
 
-    public synchronized void show() { // 同步方法
+    public synchronized void show() { // 同步方法 此時同步的物件是this
         while (true) { // 必須在synchronized外 否則thread結束同步的唯一條件變成ticket=0 也就是只有一個窗口在賣票
 
             if (ticket > 0) {
@@ -29,6 +33,7 @@ class SaleTicket1 implements Runnable {
             } else
                 break;
         }
+        flag = false;
     }
 
 }
