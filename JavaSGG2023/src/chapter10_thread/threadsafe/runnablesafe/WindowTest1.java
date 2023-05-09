@@ -25,15 +25,19 @@ class SaleTicket1 implements Runnable {
     }
 
     public synchronized void show() { // 同步方法 此時同步的物件是this
-        while (true) { // 必須在synchronized外 否則thread結束同步的唯一條件變成ticket=0 也就是只有一個窗口在賣票
 
-            if (ticket > 0) {
-                System.out.println(Thread.currentThread().getName() + "售票，票號為: " + ticket);
-                ticket--;
-            } else
-                break;
-        }
-        flag = false;
+        if (ticket > 0) {
+
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println(Thread.currentThread().getName() + "售票，票號為: " + ticket);
+            ticket--;
+        } else
+            flag = false;
     }
 
 }
