@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CallableTest",
+            "request": "launch",
+            "mainClass": "chapter10_thread.createmore.CallableTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
