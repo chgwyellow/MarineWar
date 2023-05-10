@@ -14,7 +14,7 @@ public class CallableTest {
         NumThread numThread = new NumThread();
 
         // 將callable介面實現的物件傳入FutureTask建構方法中
-        FutureTask futureTask = new FutureTask<>(numThread);
+        FutureTask<Object> futureTask = new FutureTask<>(numThread);
 
         // 將FutureTask物件放入Thread中
         Thread t1 = new Thread(futureTask);
@@ -31,7 +31,7 @@ public class CallableTest {
 
 }
 
-class NumThread implements Callable { // 需要重寫call()方法 且可以使用泛型
+class NumThread implements Callable<Object> { // 需要重寫call()方法 且可以使用泛型
     @Override
     public Object call() throws Exception { // 可以拋異常 也可以有任何型態的返回值
         int sum = 0;
