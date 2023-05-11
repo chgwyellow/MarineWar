@@ -35,6 +35,7 @@ public class Main_Function {
                 case "q":
                     System.out.println("程式結束執行");
                     return;
+
             }
         }
     }
