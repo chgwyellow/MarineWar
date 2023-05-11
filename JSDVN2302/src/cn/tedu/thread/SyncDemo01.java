@@ -11,12 +11,13 @@ public class SyncDemo01 {
     public static void main(String[] args) {
 
         Table table = new Table();
+
         Thread t1 = new Thread("白鷺") {
             @Override
             public void run() {
                 while (true) {
                     int bean = table.getBeans();
-                    System.out.println(getName() + "出手搶了一顆豆子，此時豆子數量為:" + (bean - 1));
+                    System.out.println(getName() + "搶了一顆豆子，豆子剩下:" + (bean - 1));
                 }
             }
         };
@@ -26,7 +27,7 @@ public class SyncDemo01 {
             public void run() {
                 while (true) {
                     int bean = table.getBeans();
-                    System.out.println(getName() + "出手搶了一顆豆子，此時豆子數量為:" + (bean - 1));
+                    System.out.println(getName() + "搶了一顆豆子，豆子剩下:" + (bean - 1));
                 }
             }
         };
@@ -44,10 +45,12 @@ class Table {
     /**
      * 取得豆子數量
      */
-    public int getBeans() {
+    public synchronized int getBeans() { //設定為同步方法 呼叫者為table 為Table唯一物件
         if (beans == 0) {
             throw new RuntimeException("桌上沒有豆子了!");
         }
+//        //禮讓執行緒 主動讓出CPU
+        Thread.yield();
         return beans--;
     }
 }
