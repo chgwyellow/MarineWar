@@ -24,7 +24,7 @@ public class JoinDemo {
                         Thread.sleep(50
                         );
                     } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                        e.printStackTrace();
                     }
                 }
                 System.out.println("圖片下載完畢");
@@ -41,7 +41,15 @@ public class JoinDemo {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+                System.out.println("顯示文字完畢");
                 System.out.println("開始顯示圖片...");
+                try {
+                    System.out.println("圖片加載中...");
+                    download.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //判斷圖片狀態
                 if (!isFinish) {
                     throw new RuntimeException("圖片加載失敗");
                 }
