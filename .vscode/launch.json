@@ -1,0 +1,140 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CallableTest",
+            "request": "launch",
+            "mainClass": "chapter10_thread.createmore.CallableTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "VariableTest4",
+            "request": "launch",
+            "mainClass": "basic_type.VariableTest4",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "PrintNumberTest",
+            "request": "launch",
+            "mainClass": "chapter10_thread.communication.PrintNumberTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "ProducerConsumerTest",
+            "request": "launch",
+            "mainClass": "chapter10_thread.communication.ProducerConsumerTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "EvenNumberTest",
+            "request": "launch",
+            "mainClass": "chapter10_thread.lifecycle.EvenNumberTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "EvenNumberTest(1)",
+            "request": "launch",
+            "mainClass": "chapter10_thread.runnable.EvenNumberTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "EvenNumberTest(2)",
+            "request": "launch",
+            "mainClass": "chapter10_thread.thread.EvenNumberTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "EvenNumberTest_Practice",
+            "request": "launch",
+            "mainClass": "chapter10_thread.thread.EvenNumberTest_Practice",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "AccountTest",
+            "request": "launch",
+            "mainClass": "chapter10_thread.threadsafe.exer.AccountTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "WindowTest",
+            "request": "launch",
+            "mainClass": "chapter10_thread.threadsafe.notsafe.WindowTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "WindowTest1",
+            "request": "launch",
+            "mainClass": "chapter10_thread.threadsafe.notsafe.WindowTest1",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "WindowTest(1)",
+            "request": "launch",
+            "mainClass": "chapter10_thread.threadsafe.runnablesafe.WindowTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "WindowTest1(1)",
+            "request": "launch",
+            "mainClass": "chapter10_thread.threadsafe.runnablesafe.WindowTest1",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "WindowTest(2)",
+            "request": "launch",
+            "mainClass": "chapter10_thread.threadsafe.threadsafe.WindowTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "WindowTest1(2)",
+            "request": "launch",
+            "mainClass": "chapter10_thread.threadsafe.threadsafe.WindowTest1",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "DeadLockTest",
+            "request": "launch",
+            "mainClass": "chapter10_thread.threadsafemore.deadlock.DeadLockTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "LockTest",
+            "request": "launch",
+            "mainClass": "chapter10_thread.threadsafemore.lock.LockTest",
+            "projectName": "VSCode_a4a49f02"
+        },
+        {
+            "type": "java",
+            "name": "BankTest",
+            "request": "launch",
+            "mainClass": "chapter10_thread.threadsafemore.singleton.BankTest",
+            "projectName": "VSCode_a4a49f02"
+        }
+    ]
+}
