@@ -14,18 +14,16 @@ public class Main_Function {
         UserManagement user = new UserManagement();
         Scanner sc = new Scanner(System.in);
 
-        label37:
         while (true) {
             System.out.println("請選擇需要的操作: \n1. 註冊\n2. 登入\n3. 查詢資料\n輸入q離開");
             switch (sc.nextLine()) {
                 case "1":
-                    while (true) {
-                        if (user.isRegistered) {
-                            continue label37;
-                        }
-
+                    if (user.isRegistered) {
+                        continue;
+                    } else {
                         user.register();
                     }
+                    break;
                 case "2":
                     user.login();
                     break;

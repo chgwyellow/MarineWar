@@ -1,69 +1,90 @@
 package customer;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
 public class UserManagement {
-    ArrayList<User> userList = new ArrayList();
+    ArrayList<User> userList = new ArrayList<>();
     public boolean isRegistered = false;
 
     /**
      * 註冊
      */
     public void register() throws IOException {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("歡迎來到註冊頁面");
-        System.out.println("請依序輸入資料\n");
-        System.out.println("請輸入帳號: ");
-        String account = sc.nextLine();
-        if (!account.matches(User.Pattern_Account())) {
-            System.out.println("Wrong account format.");
-        } else {
-            System.out.println("請輸入密碼: ");
-            String pwd = sc.nextLine();
-            if (!pwd.matches(User.Pattern_PassWord())) {
-                System.out.println("Wrong password format.");
-            } else {
+
+        while (!isRegistered) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("歡迎來到註冊頁面");
+            System.out.println("請依序輸入資料\n");
+
+            String account;
+            do {
+                System.out.println("請輸入帳號: ");
+                account = sc.nextLine();
+                if (!account.matches(User.Pattern_Account())) {
+                    System.out.println("Wrong account format.");
+                }
+            } while (!account.matches(User.Pattern_Account()));
+
+            String pwd;
+            do {
+                System.out.println("請輸入密碼: ");
+                pwd = sc.nextLine();
+                if (!pwd.matches(User.Pattern_PassWord())) {
+                    System.out.println("Wrong password format.");
+                }
+            } while (!pwd.matches(User.Pattern_PassWord()));
+
+
+            String name;
+            do {
                 System.out.println("請輸入姓名: ");
-                String name = sc.nextLine();
+                name = sc.nextLine();
                 if (!name.matches(User.Pattern_Name())) {
                     System.out.println("Wrong name format.");
-                } else {
-                    System.out.println("請輸入性別(male/female): ");
-                    String gender = sc.nextLine();
-                    if (!gender.equals("Male") && !gender.equals("male") && !gender.equals("Female") && !gender.equals("female")) {
-                        System.out.println("Wrong gender.");
-                    } else {
-                        System.out.println("請輸入Email: ");
-                        String email = sc.nextLine();
-                        if (!email.matches(User.Pattern_Email())) {
-                            System.out.println("Wrong email format.");
-                        } else {
-                            User user1 = new User(account, pwd, name, gender, email);
-                            this.userList.add(user1);
-                            PrintWriter bw = new PrintWriter(new FileWriter("./img&info/userInfo.txt", true));
-                            Iterator var9 = this.userList.iterator();
-
-                            while (var9.hasNext()) {
-                                User user = (User) var9.next();
-                                bw.println("Account: " + user.getAccount() + ", Password: " + user.getPassword() + ", Name: " + user.getName() + ", Gender: " + user.getGender() + ", Email: " + user.getEmail());
-                                System.out.println(" Register is Finished. Welcome to be the part of us!");
-                            }
-
-                            bw.close();
-                            this.isRegistered = true;
-                        }
-                    }
                 }
+            } while (!name.matches(User.Pattern_Name()));
+
+
+            String gender;
+            do {
+                System.out.println("請輸入性別(male/female): ");
+                gender = sc.nextLine();
+                if (!gender.equals("male") && !gender.equals("female")) {
+                    System.out.println("Wrong gender.");
+                }
+            } while (!gender.equals("male") && !gender.equals("female"));
+
+
+            String email;
+            do {
+                System.out.println("請輸入Email: ");
+                email = sc.nextLine();
+                if (!email.matches(User.Pattern_Email())) {
+                    System.out.println("Wrong email format.");
+                }
+            } while (!email.matches(User.Pattern_Email()));
+
+
+            User user1 = new User(account, pwd, name, gender, email);
+            this.userList.add(user1);
+            PrintWriter bw = new PrintWriter(new BufferedWriter(new FileWriter("./img&info/userInfo.txt", true)));
+            Iterator list = this.userList.iterator();
+
+            while (list.hasNext()) {
+                User user = (User) list.next();
+                bw.println("Account: " + user.getAccount() + ", Password: " + user.getPassword() + ", Name: " + user.getName() + ", Gender: " + user.getGender() + ", Email: " + user.getEmail());
+                System.out.println(" Register is Finished. Welcome to be the part of us!");
             }
+
+            bw.close();
+            this.isRegistered = true;
         }
+
     }
+
 
     /**
      * 登入
@@ -75,10 +96,10 @@ public class UserManagement {
         String account = sc.nextLine();
         System.out.println("請輸入你的密碼: ");
         String pwd = sc.nextLine();
-        Iterator var4 = this.userList.iterator();
+        Iterator list = userList.iterator();
 
-        while (var4.hasNext()) {
-            User user = (User) var4.next();
+        while (list.hasNext()) {
+            User user = (User) list.next();
             if (user.getAccount().equals(account) && user.getPassword().equals(pwd)) {
                 System.out.println("登入成功!");
                 break;
