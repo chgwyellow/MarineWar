@@ -49,7 +49,7 @@ class Table {
         if (beans == 0) {
             throw new RuntimeException("桌上沒有豆子了!");
         }
-//        //禮讓執行緒 主動讓出CPU
+       //禮讓執行緒 主動讓出CPU
         Thread.yield();
         return beans--;
     }
