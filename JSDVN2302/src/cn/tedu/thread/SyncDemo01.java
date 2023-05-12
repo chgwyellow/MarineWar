@@ -4,7 +4,7 @@ package cn.tedu.thread;
 /**
  * @author chgwyellw
  * @create 2023-05-11
- * @description :
+ * description :
  * 多執行緒的併發安全問題
  */
 public class SyncDemo01 {
