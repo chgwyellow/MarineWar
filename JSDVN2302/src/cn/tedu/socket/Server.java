@@ -98,19 +98,18 @@ public class Server {
                 OutputStream out = socket.getOutputStream();
                 pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8)), true);
 
-                //將該用戶端的輸出串流存入
+                //將該用戶端的輸出串流存入 等於用戶上線
                 allOut = Arrays.copyOf(allOut, allOut.length + 1);//擴容
                 allOut[allOut.length - 1] = pw; //最後一個index存入
+                //廣播通知用戶上線
+                sendMessage("一個用戶上線!\n當前在線人數: " + allOut.length);
 
                 //br讀取到的數據儲存到line裡面
                 String line;
                 while ((line = br.readLine()) != null) {
                     System.out.println(line);
-                    pw.println("用戶端回覆: " + line);
-                    //將客戶端的訊息回覆給所有用戶端
-                    for (int i = 0; i < allOut.length; i++) {
-                        allOut[i].println(line);
-                    }
+                    //將用戶端發送的訊息傳給所有用戶
+                    sendMessage(line);
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -121,14 +120,28 @@ public class Server {
                     if (allOut[i] == pw) {
                         allOut[i] = allOut[allOut.length - 1]; //將最後的元素覆蓋下線的用戶
                         allOut = Arrays.copyOf(allOut, allOut.length - 1); //縮容
+
                         break; //找到目標就結束 不用遍歷整個陣列
                     }
                 }
+                //廣播通知用戶下線
+                sendMessage("一個用戶下線!\n當前在線人數: " + allOut.length);
                 try {
                     socket.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+        }
+
+        /**
+         * 廣播通知所有用戶端
+         *
+         * @param message 訊息
+         */
+        private void sendMessage(String message) {
+            for (int i = 0; i < allOut.length; i++) {
+                allOut[i].println(message);
             }
         }
     }
