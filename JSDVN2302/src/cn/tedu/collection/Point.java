@@ -1,5 +1,7 @@
 package cn.tedu.collection;
 
+import java.util.Objects;
+
 /**
  * ClassName: Point
  * Package: cn.tedu.collection
@@ -39,4 +41,15 @@ public class Point {
         return "(" + x +","+ y + ')';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Point point)) return false;
+        return getX() == point.getX() && getY() == point.getY();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getX(), getY());
+    }
 }
