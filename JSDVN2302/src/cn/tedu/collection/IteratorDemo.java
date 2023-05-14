@@ -38,5 +38,6 @@ public class IteratorDemo {
                 //迭代器提供的刪除方法
                 it.remove();
         }
+        System.out.println("c = " + c);
     }
 }
