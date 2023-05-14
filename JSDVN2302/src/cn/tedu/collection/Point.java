@@ -43,12 +43,10 @@ public class Point {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        Point point = (Point) o;
-        return x == point.x && y == point.y;
+        if (this == o) return true; //同類就true
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o; //將傳入參數強制轉型
+        return x == point.x && y == point.y; //比較呼叫的變數與參數內容
     }
 
     @Override

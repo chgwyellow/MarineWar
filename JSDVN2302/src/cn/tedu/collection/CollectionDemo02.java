@@ -30,7 +30,8 @@ public class CollectionDemo02 {
         System.out.println(c);
         Point p = new Point(3, 4);
 
-        //contain() 是否包含 比較的是地址
+        //contain() 地層默認呼叫equals方法
+        // 預設比較的是地址 重寫equals方法來改變比較內容
         System.out.println("集合中是否包含(3,4)這個點: " + c.contains(p));
 
         //Object類別的equals()是比較地址
