@@ -19,6 +19,7 @@ public class Test2 {
         int[] arr1 = {1, 2, 3, 4, a};
         Point[] arr2 = {new Point(1, 2), new Point(3, 4), new Point(5, 6), p};
         dosome(a, str, p, arr, arr1, arr2);
+
         System.out.println("a:" + a);//1
         System.out.println("str:" + str);//hello
         System.out.println("p:" + p);//(4,2)
@@ -27,8 +28,7 @@ public class Test2 {
         System.out.println("arr2:" + Arrays.toString(arr2));//[(1,2), (3,4),(12,6), (4,2)]
     }
 
-    public static void dosome(int a, String str, Point p, String[] arr, int[]
-            arr1, Point[] arr2) {
+    public static void dosome(int a, String str, Point p, String[] arr, int[] arr1, Point[] arr2) {
         arr1[a] = 3;
         arr[a] = "str";
         arr[a + 1] = str;
