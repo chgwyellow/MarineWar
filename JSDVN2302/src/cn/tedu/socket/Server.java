@@ -84,7 +84,7 @@ public class Server {
 
         @Override
         public void run() {
-
+            PrintWriter pw = null; //全域變數
             /**
              Socket的getInputStream()方法
              接收用戶端輸出的數據
@@ -96,7 +96,7 @@ public class Server {
 
                 //從socket獲取輸出串流給其他用戶發送消息
                 OutputStream out = socket.getOutputStream();
-                PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8)), true);
+                pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8)), true);
 
                 //將該用戶端的輸出串流存入
                 allOut = Arrays.copyOf(allOut, allOut.length + 1);//擴容
@@ -115,6 +115,15 @@ public class Server {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } finally {
+                //用戶端離線時將pw移出allOut陣列 縮容
+                for (int i = 0; i < allOut.length; i++) {
+                    //找到要刪除的元素 其實就是pw 因為不下線會一直在while迴圈裏面跑
+                    if (allOut[i] == pw) {
+                        allOut[i] = allOut[allOut.length - 1]; //將最後的元素覆蓋下線的用戶
+                        allOut = Arrays.copyOf(allOut, allOut.length - 1); //縮容
+                        break; //找到目標就結束 不用遍歷整個陣列
+                    }
+                }
                 try {
                     socket.close();
                 } catch (IOException e) {

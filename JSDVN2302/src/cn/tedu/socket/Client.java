@@ -51,7 +51,9 @@ public class Client {
             //啟動一個執行緒獲取伺服器發送的訊息
             ServerHandler serverHandler = new ServerHandler();
             Thread t = new Thread(serverHandler);
+            t.setDaemon(true);//將子執行緒設定為守護 主程式結束時 可以自動被殺死
             t.start();
+
             /*
             呼叫Socket的getOutputStream()方法
             獲取位元輸出流
@@ -109,7 +111,7 @@ public class Client {
                 }
 
             } catch (IOException e) {
-                //連線斷開還會觸發異常 但實際觸發也看不到 所以就不寫
+                //連線斷開才會觸發異常 但實際觸發也看不到 所以就不寫
                 //e.printStackTrace();
             }
 
