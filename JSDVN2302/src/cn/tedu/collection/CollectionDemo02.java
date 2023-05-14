@@ -18,6 +18,8 @@ public class CollectionDemo02 {
         Collection c = new ArrayList();
         c.add(new Point(1, 2));
         c.add(new Point(3, 4));
+        //ArrayList集合中可含有重複元素
+        c.add(new Point(3, 4));
         c.add(new Point(5, 6));
         c.add(new Point(7, 8));
         c.add(new Point(9, 10));
@@ -34,9 +36,9 @@ public class CollectionDemo02 {
         // 預設比較的是地址 重寫equals方法來改變比較內容
         System.out.println("集合中是否包含(3,4)這個點: " + c.contains(p));
 
-        //Object類別的equals()是比較地址
-        //重寫equals方法比較內容
-        System.out.println("集合中是否包含(3,4)這個點: " + c.equals(p));
+        //刪除當前集合中存在的指定元素值
+        c.remove(p);
+        System.out.println(c);
 
     }
 }
