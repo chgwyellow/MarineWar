@@ -28,9 +28,15 @@ public class IteratorDemo {
 
         //獲取迭代器
         Iterator it = c.iterator();
-        while (it.hasNext()) { //如果迭代器後方還有元素
-            Object e = it.next(); //用next()取出元素並移動迭代器
+        //判斷迭代器後方是否還有元素
+        while (it.hasNext()) {
+            //用next()取出元素並移動迭代器
+            Object e = it.next();
             System.out.println(e);
+            //如果便利的元素是D 刪除
+            if("D".equals(e))
+                //迭代器提供的刪除方法
+                it.remove();
         }
     }
 }
