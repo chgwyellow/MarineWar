@@ -111,7 +111,6 @@ public class Server {
                     for (int i = 0; i < allOut.length; i++) {
                         allOut[i].println(line);
                     }
-
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -122,8 +121,6 @@ public class Server {
                     e.printStackTrace();
                 }
             }
-
         }
-
     }
 }
