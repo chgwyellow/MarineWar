@@ -31,15 +31,15 @@ public class NewForDemo {
             System.out.print(s + "\t");
         }
 
-        Collection c = new ArrayList();
-        c.add(1);
-        c.add(2);
-        c.add(3);
-        c.add(4);
-        c.add(5);
+        Collection<String> c = new ArrayList();
+        c.add("1");
+        c.add("2");
+        c.add("3");
+        c.add("4");
+        c.add("5");
         System.out.println("\n----------------新版for loop遍歷集合----------------");
-        for (Object e : c) {
-            System.out.print(e + "\t");
+        for (String s : c) {
+            System.out.print(s);
         }
 
     }

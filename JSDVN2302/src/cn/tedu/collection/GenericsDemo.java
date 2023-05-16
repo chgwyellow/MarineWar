@@ -25,5 +25,24 @@ public class GenericsDemo {
         Collection<Integer> c2 = new ArrayList<>();
         c2.add(43); //只能是整數類型
 
+        //宣告泛型時，Test類別裡的所有T都會被改變
+        Test<String> test = new Test<>();
+        test.setObj("字串");
+        test.getObj();
+
+    }
+}
+
+//類別名稱後面用泛型約束 T-> type E->Element K->Key V->Value
+class Test<T>{
+    //類別中需要參數控制的地方都改成泛型
+    private T obj;
+
+    public T getObj() {
+        return obj;
+    }
+
+    public void setObj(T obj) {
+        this.obj = obj;
     }
 }
