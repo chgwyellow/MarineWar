@@ -13,7 +13,7 @@ import java.util.List;
  * @Author chgwyellow
  * @Create 2023-05-16 下午 08:51
  */
-public class ListDemo {
+public class ListDemo01 {
     public static void main(String[] args) {
 
         List<String> list = new ArrayList<>();
