@@ -10,7 +10,7 @@ import java.util.Objects;
  * @Author chgwyellow
  * @Create 2023-05-14 上午 11:33
  */
-public class Point {
+public class Point implements Comparable<Point> {
 
     private int x;
     private int y;
@@ -38,7 +38,7 @@ public class Point {
 
     @Override
     public String toString() {
-        return "(" + x +","+ y + ')';
+        return "(" + x + "," + y + ')';
     }
 
     @Override
@@ -52,6 +52,20 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public int compareTo(Point o) { //自訂義排序方法
+        //定義比較兩個點的x座標
+        int x1 = this.getX();
+        int x2 = o.getX();
+//        if (x1 > x2)
+//            return 1;
+//        else if (x1 < x2) {
+//            return -1;
+//        } else
+//            return 0;
+        return x1 - x2;
     }
 }
 
